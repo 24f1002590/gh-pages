@@ -1,0 +1,13 @@
+name: Email Verification Workflow
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 24f1002590@ds.study.iitm.ac.in
+        run: echo "Hello, world! This step includes my email address."
