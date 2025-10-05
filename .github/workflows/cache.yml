@@ -1,0 +1,25 @@
+name: Cache Prime Workflow
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ✅ Step: Use caching to speed up installs
+      - name: Setup cache
+        id: cache-step
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: cache-032b2fb
+
+      # ✅ Step: Echo cache result
+      - name: prime-cache-032b2fb
+        run: echo "Cache hit: ${{ steps.cache-step.outputs.cache-hit }}"
